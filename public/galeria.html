@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Matheus & Ana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding-top: 80px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-theme {
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px;
+      font-size: 32px;
+      color: #ff6b81;
+      font-family: 'Great Vibes', cursive;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    body.light-theme header {
+      background-color: #eee;
+      color: #ff6b81;
+    }
+
+    .heart-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff6b81;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    .gallery {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .gallery-text {
+      flex: 1;
+      text-align: left;
+      font-size: 18px;
+      font-weight: bold;
+      color: inherit;
+      min-width: 300px;
+    }
+
+    .text-box {
+      padding: 20px;
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .button-container {
+      margin: 60px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #ff6b81;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn.white {
+      background-color: white;
+      color: black;
+    }
+
+    .btn:hover {
+      background-color: #e6455e;
+    }
+
+    .btn.white:hover {
+      background-color: #ccc;
+    }
+
+    .btn.theme-toggle {
+      background-color: gray;
+      color: white;
+    }
+
+    .btn.theme-toggle:hover {
+      background-color: #555;
+    }
+
+    footer {
+      padding: 40px 20px;
+      font-size: 16px;
+      color: #aaa;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery img {
+        width: 80%;
+        height: auto;
+      }
+    }
+     .extras-section {
+  margin: 60px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.extras-gallery img {
+  width: 142px;
+  height: 152px;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.extras-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsividade correta para telas pequenas */
+@media (max-width: 600px) {
+  .extras-gallery{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .extras-gallery img {
+    width: 80% !important;
+    height: auto !important;
+  
+}
+}
+  </style>
+</head>
+<body class="dark-theme">
+  <header>I Love You...❤️</header>
+
+  <div class="heart-container" id="heartContainer"></div>
+
+  <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #ff6b81;">Matheus & Ana 💞</h1>
+  <h3>Linha do Tempo: Melhores momentos</h3>
+
+
+  <section class="gallery" data-aos="fade-up-right" aria-label="Casamento">
+    <img src="imagem4.jpg" alt="Indo ao casamento">
+  <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Primeiro Encontro ❤️</h3>
+    <p>Lembro como se fosse ontem, eu não sabia direito o que te falar.</p>
+    <p>Francamente, nunca imaginei que a partir dali teríamos algo especial.</p>
+    <p>Mas quando nossas mãos se encontraram e eu descobri quem você realmente era, entendi que havia encontrado o amor da minha vida. (Emocionado né? kk)</p>
+  </div>
+</section>
+  <section class="gallery" data-aos="fade-up-left" aria-label="Casamento">
+    <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Orla do Gasometro 🌅</h3>
+    <p>O dia que fomos na Orla, lembro que foi o dia em que postamos nosso primeiro story juntos tambem (depois de eu ter dado uma insistida kkk)</p>
+    <p>Lembro de estarmos voltando pra casa, olhando rells no insta, e de la veio a ideia que marcaria o dia para mim: "tinha dois ursos, o beija eu e o me beija" kkkk </p>
+    <p>Depois disso tomei coragem e dei o nosso primeiro beijo naquele dia (me arrependi de não ter feito isso antes), foi ali que comecei a bolar o meu grande plano...</p> 
+  </div>
+  <img src="imagem11.jpg" alt="Orla do Gasometro">
+  </section>
+
+  <section class="gallery" data-aos="fade-up-right" aria-label="Casamento">
+    <img src="imagem2.jpg" alt="Indo ao casamento">
+  <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Tua formatura 🎓</h3>
+    <p>Lembro de tu ter mencionado que ia se formar em pouco tempo, e naquele mesmo dia engatilhou na minha mente "eu tenho que ir"</p>
+    <p>A situação com os ingressos foi meio conturbada, mas felizmente eu consegui ir, e nossa, como tu tava linda naquele vestido</p>
+    <p>Naquele dia conhecia o resto da tua familia, teus irmãos me deram um apavoro  no começo, mas acabei gostando de todo mundo, e acho que gostaram de mim tambem, mas isso não era tudo que tinha guardado para aquele dia...</p>
+  </div>
+</section>
+
+ <section class="gallery" data-aos="fade-up-left" aria-label="Casamento">
+    <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>O dia do pedido 💍</h3>
+    <p>Dia 15/12/24, lembro como se fosse ontem, o dia em que te pedi em namoro, passei semanas pensando em como fazer aquilo dar certo</p>
+    <p>Foram dias pensando: "Ajoelhou ou não? Peço ela em publico ou sozinha? Tenho que dar um jeito de registrar esse momento", e não ajudava muito tu ficar mandando "💍" no whatsaap kkk</p>
+    <p>Passei o dia todo com a caixa da aliança no bolso (não sei como tu não percebeu), no momento em que vc foi ao banheiro, mostrei para todos na mesa, e pedi ajuda deles pra registrar o momento</p> 
+    <p>Sempre lembro de quando tu me disse sim, nunca estive tão feliz </p>
+  </div>
+  <img src="imagem 6.jpg" alt="Orla do Gasometro">
+  </section>
+
+  <section class="gallery" data-aos="fade-up-right" aria-label="Casamento">
+    <img src="imagem5.jpg" alt="Indo ao casamento">
+  <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Indo juntos ao casamento 🕊️</h3>
+    <p>Me lembro de antes mesmo da gente começar a namorar, eu te mandar uma mensagem "quer ir a um casamento comigo?", eu via isso em filmes e sempre quis dizer kkk</p>
+    <p>Uma semana depois de começarmos a namorar nos fomos ao casamento do meu irmão, que por coencidencia, foi no mesmo lugar em que te pedi em namoro</p>
+    <p>Foi muito bom te apresentar pro meus irmãos e cunhados, me emocionou muito ver eles se casando</p>
+    <p>PS: eu so queria que tu tivesse feito um pouco mais de vontade para pegar o buque 🥲 </p>
+  </div>
+</section>
+
+<section class="gallery" data-aos="fade-up-left" aria-label="Casamento">
+    <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Viajando juntos 🏖️</h3>
+    <p>Uma semana antes de acabar o Ano, minha familia resolve ir para a praia, e é obvio que eu não iria te deixar</p>
+    <p>Felizmente tu ja conhecia um pouco o pessoal da familia, então não foi dificil se enturmar</p>
+    <p>Foi Muito bom poder te levar pra jantar com a minha familia, tomar banho de mar contigo, ficar agarrados na rede (com a Maia kkk), jogar GTA naquela tv minuscula e dormir espremidos naquele colchonete kkkk</p> 
+  </div>
+  <img src="imagem1.jpg" alt="Orla do Gasometro">
+  </section>
+
+  <section class="gallery" data-aos="fade-up-right" aria-label="Casamento">
+    <img src="imagem3.jpg" alt="Indo ao casamento">
+  <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Ano novo juntos 🎆</h3>
+    <p>Aquele dia foi legal, eu tava ansioso pensando em virar o ano namorando contigo</p>
+    <p>Nos saimos pra jantar em um restaurante a beira-mar, os que eu queria estavam fechados, então achamos um que eu nunca tinha ido antes, a comida tava boa apesar de ter demorado um pouco</p>
+    <p>Voltamos para casa para sair com todo mundo, mas vendo que eles iam se atrasar fomos sozinhos ver os fogos<p></p>
+    <p>Lembro de tu postar um stori e ficar preocupada que tua madrasta visse e contasse pro teu pai, ja que tu não tinha avisado que iria sair kkkk</p>
+    <p>Enfim, te conhecer foi a melhor coisa que aconteceu comigo naquele ano</p>
+  </div>
+</section>
+
+<section class="gallery" data-aos="fade-up-left" aria-label="Casamento">
+    <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Mufasa 😺</h3>
+    <p>Por coencidencia, em um dia em que faltei o curso pra ficar contigo, nos encontramos um gatinho filhote miando no forro</p>
+    <p>Lembro da ansiedade que tu ficou para pegar ele de la, e o trabalhão que deu pra conseguir fazer isso</p>
+    <p>No momento em que eu consegui, tu arrancou o bixo das minhas mãos tão rapido que até me assustei, mas era muito fofo o jeito que tu cuidava dele</p> 
+    <p>Nós tinhamos visto fazia uma semana Mufasa o rei leão, e como o gato era laranja decidimos chamar ele assim</p>
+    <p>Infelizmente ele veio em um mal tempo e tivemos que doar ele, mas eu tenho certeza que ele esta bem hoje, e que vamos ter um ou mais no futuro (ta, eu deixo tu chamar ele de Francisco Cisco kkkk)</p>
+  </div>
+  <img src="imagem12.jpg" alt="Orla do Gasometro">
+  </section>
+
+  <section class="gallery" data-aos="fade-up-right" aria-label="Casamento">
+     <img src="imagem8.jpg" alt="Orla do Gasometro">
+    <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Nos casando 👩‍❤️‍👨</h3>
+    <p>Aqui foi o dia em que nos casamos... AH PERA... Isso não aconteceu ainda... AINDA!!!</p>
+  </div>
+  </section>
+
+  <section class="gallery" data-aos="fade-up-left" aria-label="Casamento">
+    <div class="gallery-text" style="flex: 1; text-align: left;">
+    <h3>Nossa familia 👪<div class="extras-gallery img">
+    </h3>
+    <p>E finalmente aqui somos nós, com nossos dois gemeos, a Isabel e o Rafa, os nossos gatos, o Francisco e o Cisco, e o nosso salsicha chamado Scooby (tu ja escolheu o nome dos gato e das crianças, deixa esse pra mim pelo amor de Deus)</p>
+    <p>AH PERA... Isso tambem não aconteceu por enquanto... MAS SÓ POR ENQUATO TA BOM!?</p>
+  </div>
+  <img src="imagem 7.jpg" alt="Orla do Gasometro">
+  </section>
+
+  <section class="extras-section" data-aos="zoom-in-up">
+  <h2 style="color: #ff6b81; font-family: 'Great Vibes', cursive; font-size: 36px;">Extras 📸</h2>
+  <div class="extras-gallery">
+  <div class="extras-gallery img">
+    <img src="extra1.jpg" alt="Extra 1">
+    <img src="extra2.jpg" alt="Extra 1">
+    <img src="extra3.jpg" alt="Extra 1">
+    <img src="extra6.jpg" alt="Extra 1">
+    <img src="extra10.jpg" alt="Extra 1">
+  </div>
+  <div class="extras-gallery img">
+    <img src="extra7.jpg" alt="Extra 1">
+    <img src="extra8.jpg" alt="Extra 1">
+    <img src="extra9.jpg" alt="Extra 1">
+    <img src="extra11.jpg" alt="Extra 1">
+    <img src="extra12.jpg" alt="Extra 1">
+  </div>
+  <div class="extras-gallery img">
+    <img src="extra13.jpg" alt="Extra 1">
+    <img src="extra14.jpg" alt="Extra 1">
+    <img src="extra60.jpg" alt="Extra 1">
+    <img src="extra16.jpg" alt="Extra 1">
+    <img src="extra17.jpg" alt="Extra 1">
+  </div>
+  <div class="extras-gallery img">
+    <img src="extra18.jpg" alt="Extra 1">
+    <img src="extra19.jpg" alt="Extra 1">
+    <img src="extra20.jpg" alt="Extra 1">
+    <img src="extra21.jpg" alt="Extra 1">
+    <img src="extra22.jpg" alt="Extra 1">
+  </div>
+  <div class="extras-gallery img">
+    <img src="extra23.jpg" alt="Extra 1">
+    <img src="extra24.jpg" alt="Extra 1">
+    <img src="extra25.jpg" alt="Extra 1">
+    <img src="extra26.jpg" alt="Extra 1">
+    <img src="extra27.jpg" alt="Extra 1">
+  </div>
+  </div>
+</section>
+
+ <div class="button-container">
+    <a href="inicio.html" class="btn">&lt;&lt; VOLTAR</a>
+    <a href="creditos.html" class="btn white">CRÉDITOS &gt;&gt;</a>
+  </div>
+
+
+
+  <!-- Botão de alternar tema -->
+<button id="themeBtn" style="
+  position: fixed;
+  bottom: 80px; /* Fica acima do botão de música */
+  right: 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 999;
+">🌓 Tema</button>
+
+<!-- Botão de música -->
+<button id="musicBtn" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 999;
+">🎵 Música</button>
+
+  <audio id="bgAudio" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML.
+</audio>
+
+
+
+  <footer>
+    <p>Feito com amor por Matheus para Ana 💖</p>
+  </footer>
+
+
+<script>
+  AOS.init();
+
+  // Botão de alternar tema
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+  const body = document.body;
+  body.classList.toggle('light-theme');
+  body.classList.toggle('dark-theme');
+
+  // Salva o tema no localStorage
+  if (body.classList.contains('light-theme')) {
+    localStorage.setItem('theme', 'light');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+  const audio = document.getElementById("bgAudio");
+  const musicBtn = document.getElementById("musicBtn");
+
+  // Recupera posição do áudio salva (se houver)
+  const savedTime = localStorage.getItem('audioCurrentTime');
+  if (savedTime) {
+    audio.currentTime = parseFloat(savedTime);
+  }
+
+  let isPlaying = false;
+
+  musicBtn.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.play();
+      musicBtn.textContent = "⏸️ Pausar Música";
+    } else {
+      audio.pause();
+      musicBtn.textContent = "🎵 Música";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Salva posição do áudio
+  audio.addEventListener("timeupdate", () => {
+    localStorage.setItem("audioCurrentTime", audio.currentTime);
+  });
+
+  // Corações animados
+  function createHeart() {
+    const heart = document.createElement("span");
+    heart.classList.add("heart");
+
+    const hearts = ["❤️", "💖", "💘", "💝", "💕", "💗"];
+    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 20 + Math.random() * 20 + "px";
+    heart.style.opacity = 0.5 + Math.random() * 0.5;
+    heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+
+    document.getElementById("heartContainer").appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+
+  setInterval(createHeart, 500);
+
+  // Trocar tema e salvar no localStorage
+  function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('light-theme');
+    body.classList.toggle('dark-theme');
+
+    // Salva o tema atual
+    if (body.classList.contains('light-theme')) {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  // Aplica o tema salvo ao carregar
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+      document.body.classList.remove('dark-theme');
+    } else {
+      document.body.classList.add('dark-theme');
+      document.body.classList.remove('light-theme');
+    }
+  });
+</script>
+</body>
+</html>

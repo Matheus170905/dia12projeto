@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bem-vindos - Matheus & Ana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff6b81, #f73d4a);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 56px;
+      margin-bottom: 15px;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      color: #ffe6e6;
+    }
+
+    h3 {
+      margin-bottom: 15px;
+      color: #ffb3b3;
+    }
+
+    .info-list {
+      text-align: left;
+      margin-bottom: 30px;
+      font-size: 16px;
+      color: #ffdede;
+    }
+
+    .info-list p {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-list p span {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    a.btn {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff6b81;
+      background-color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(255, 107, 129, 0.6);
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    a.btn:hover {
+      background-color: #ff6b81;
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 107, 129, 0.9);
+    }
+
+    /* Responsividade */
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 42px;
+      }
+      a.btn {
+        padding: 12px 30px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" data-aos="fade-up">
+    <h1>Seja bem-vindo</h1>
+    <p>Esta é uma pagina de minha autoria feita em HTML.</p>
+    <p>Aqui você poderá interagir com o display, navegar entre as abas e acionar ferramentas especiais.</p>
+
+    <h3>Como usar:</h3>
+    <div class="info-list">
+      <p><span>🎵</span><strong>Botão Música:</strong> Clique para tocar ou pausar a música de fundo.</p>
+      <p><span>🌓</span><strong>Botão Tema:</strong> Alterne entre tema claro e escuro para seu conforto visual.</p>
+      <p><span>↘️</span> Ambos ficam no canto inferior direito da tela.</p>
+    </div>
+
+    <a href="inicio.html" class="btn">Entrar</a>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
