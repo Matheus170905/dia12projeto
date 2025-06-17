@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Matheus & Ana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding-top: 80px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-theme {
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px;
+      font-size: 32px;
+      color: #ff6b81;
+      font-family: 'Great Vibes', cursive;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    body.light-theme header {
+      background-color: #eee;
+      color: #ff6b81;
+    }
+
+    .heart-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff6b81;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    .gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto 40px 80px; /* 80px de margem à esquerda */
+  flex-wrap: wrap;
+}
+
+    .gallery img {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .gallery-text {
+      flex: 1;
+      text-align: left;
+      font-size: 18px;
+      font-weight: bold;
+      color: inherit;
+      min-width: 300px;
+    }
+
+    .text-box {
+      padding: 20px;
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .button-container {
+      margin: 60px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #ff6b81;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn.white {
+      background-color: white;
+      color: black;
+    }
+
+    .btn:hover {
+      background-color: #e6455e;
+    }
+
+    .btn.white:hover {
+      background-color: #ccc;
+    }
+
+    .btn.theme-toggle {
+      background-color: gray;
+      color: white;
+    }
+
+    .btn.theme-toggle:hover {
+      background-color: #555;
+    }
+
+    footer {
+      padding: 40px 20px;
+      font-size: 16px;
+      color: #aaa;
+    }
+
+    audio {
+      display: none;
+    }
+
+.floating-heart {
+  position: fixed;
+  font-size: 24px;
+  animation: floatUp 2s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.5);
+  }
+}
+
+    @media (max-width: 600px) {
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery img {
+        width: 80%;
+        height: auto;
+      }
+    }
+    h1 {
+      color: red;
+    }
+
+    video {
+      max-width: 100%;
+      height: 600px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: white;
+      background-color: red;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    a:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+    <div class="heart-container" id="heartContainer"></div>
+  <header> I Love You...❤️</header>
+  <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #ff6b81;">Matheus & Ana 💞</h1>
+
+  <h1>Créditos</h1>
+
+<video controls loop>
+  <source src="video.mp4" type="video/mp4">
+</video>
+<br>
+  
+   <div class="button-container">
+  <h1 style="margin-bottom: 10px;">Gostou da página?</h1>
+  <h5>(tente cliclar no NÃO)</h5>
+ <button class="btn" id="simBtn">Sim</button>
+  <button class="btn" id="naoBtn">Não</button>
+  <br><br>
+  <a href="galeria.html" class="btn">&lt;&lt; VOLTAR</a>
+
+<button id="themeBtn" style="
+  position: fixed;
+  bottom: 80px; /* Fica acima do botão de música */
+  right: 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 999;
+">🌓 Tema</button>
+
+<!-- Botão de música -->
+<button id="musicBtn" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 999;
+">🎵 Música</button>
+
+ <audio id="bgAudio" autoplay loop>
+  <source src="https://audio-8f2z.vercel.app/audio.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+
+
+  <footer>
+    <p>Feito com amor por Matheus para Ana 💖</p>
+  </footer>
+
+
+<script>
+  AOS.init();
+
+  // Botão de alternar tema
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+  const body = document.body;
+  body.classList.toggle('light-theme');
+  body.classList.toggle('dark-theme');
+
+  // Salva o tema no localStorage
+  if (body.classList.contains('light-theme')) {
+    localStorage.setItem('theme', 'light');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+  const audio = document.getElementById("bgAudio");
+  const musicBtn = document.getElementById("musicBtn");
+
+  // Recupera posição do áudio salva (se houver)
+  const savedTime = localStorage.getItem('audioCurrentTime');
+  if (savedTime) {
+    audio.currentTime = parseFloat(savedTime);
+  }
+
+  let isPlaying = false;
+
+  musicBtn.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.play();
+      musicBtn.textContent = "⏸️ Pausar Música";
+    } else {
+      audio.pause();
+      musicBtn.textContent = "🎵 Música";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Salva posição do áudio
+  audio.addEventListener("timeupdate", () => {
+    localStorage.setItem("audioCurrentTime", audio.currentTime);
+  });
+
+  // Corações animados
+  function createHeart() {
+    const heart = document.createElement("span");
+    heart.classList.add("heart");
+
+    const hearts = ["❤️", "💖", "💘", "💝", "💕", "💗"];
+    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 20 + Math.random() * 20 + "px";
+    heart.style.opacity = 0.5 + Math.random() * 0.5;
+    heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+
+    document.getElementById("heartContainer").appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+
+  setInterval(createHeart, 500);
+
+  // Trocar tema e salvar no localStorage
+  function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('light-theme');
+    body.classList.toggle('dark-theme');
+
+    // Salva o tema atual
+    if (body.classList.contains('light-theme')) {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  // Aplica o tema salvo ao carregar
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+      document.body.classList.remove('dark-theme');
+    } else {
+      document.body.classList.add('dark-theme');
+      document.body.classList.remove('light-theme');
+    }
+  });
+
+  // Botão "Não" que foge do clique
+const naoBtn = document.getElementById("naoBtn");
+
+naoBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // impede o clique normal
+
+  const x = Math.floor(Math.random() * (window.innerWidth - naoBtn.offsetWidth));
+  const y = Math.floor(Math.random() * (window.innerHeight - naoBtn.offsetHeight));
+
+  naoBtn.style.position = "absolute";
+  naoBtn.style.left = `${x}px`;
+  naoBtn.style.top = `${y}px`;
+});
+
+const simBtn = document.getElementById("simBtn");
+
+simBtn.addEventListener("click", () => {
+  const duration = 5000; // duração de 5 segundos
+  const start = Date.now();
+
+  // Som de comemoração (se adicionou o áudio)
+  const efeitoSom = document.getElementById("efeitoSom");
+  if (efeitoSom) {
+    efeitoSom.currentTime = 0;
+    efeitoSom.play();
+  }
+
+  // Efeito visual de mudança rápida de cor de fundo
+  let originalBg = document.body.style.backgroundColor;
+  let originalColor = document.body.style.color;
+  const flashInterval = setInterval(() => {
+    document.body.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 85%)`;
+    document.body.style.color = "black";
+  }, 100);
+
+  // Explosão intensa de emojis
+  const explosionInterval = setInterval(() => {
+    if (Date.now() - start > duration) {
+      clearInterval(explosionInterval);
+      clearInterval(flashInterval);
+      document.body.style.backgroundColor = originalBg;
+      document.body.style.color = originalColor;
+      return;
+    }
+
+    for (let i = 0; i < 15; i++) { // aumenta a quantidade de emojis
+      const particle = document.createElement("div");
+      particle.classList.add("floating-heart");
+
+      const emojis = ["🎉", "🎊", "✨", "💥", "🥳", "💖"];
+      particle.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+      const rect = simBtn.getBoundingClientRect();
+      particle.style.position = "absolute";
+      particle.style.left = `${rect.left + Math.random() * rect.width}px`;
+      particle.style.top = `${rect.top + window.scrollY}px`;
+      particle.style.fontSize = `${16 + Math.random() * 24}px`;
+      particle.style.opacity = 1;
+      particle.style.pointerEvents = "none";
+      particle.style.userSelect = "none";
+      particle.style.zIndex = 9999;
+
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 2000);
+    }
+  }, 100);
+});
+
+
+</script>
+</body>
+</html>
